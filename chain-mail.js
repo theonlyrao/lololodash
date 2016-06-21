@@ -1,9 +1,8 @@
 var _ = require("lodash");
 
-
-var pizza = [];
-
 var worker = function(list) {
+    var pizza = [];
+    
     _.sortBy(list).map(function(word){
 	pizza.push(word.toUpperCase() + "CHAINED");
     });
