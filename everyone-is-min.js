@@ -1,11 +1,11 @@
 var _ = require("lodash");
 
-var results = {
-    hot: [],
-    warm: []
-};
-
 var worker = function(noIdea) {
+  var results = {
+      hot: [],
+      warm: []
+  };
+
     _.forEach(noIdea, function(value, key) {
 	if (_.every(value, function(n) {
 	    return n > 19;
