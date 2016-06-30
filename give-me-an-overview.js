@@ -1,19 +1,16 @@
 var _ = require("lodash");
 
 var worker = function(collection) {
-    _.reduce(collection, function(result, value) {
-	console.log("total: " + result)
-	console.log("article #: " + value.article)
-	console.log("article quantity: " + value.quantity)
-	if (result[value.article]) {
-	    console.log("in if")
-	    return result[value.article] += value.quantity;
-	} else {
-	    console.log("in else")
-	    return result[value.article] = value.quantity;
-	}
-	return result;
-    }, [{}]);
+    var grouped = _.groupBy(collection, function(order){
+	return order.article
+    })
+    console.log(grouped)
+    var output = _.map(grouped, function(grouping){
+	console.log(grouping[value])
+    })
+    _.reduce(collection, function(accumulator, value) {
+	return accumulator + value[1];
+    }, 0);
 };
 
 
